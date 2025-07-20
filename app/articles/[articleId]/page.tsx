@@ -10,6 +10,11 @@ const ArticleDetails = async ({
 }) => {
   const { articleId } = await params;
   const { lang = "en" } = await searchParams;
+   await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('');
+    }, 2000);
+  });
   return (
     <div>
       <h1>News article {articleId}</h1>
