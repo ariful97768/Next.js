@@ -1,13 +1,12 @@
 import { comments } from "../../data"
+export const dynamic = 'force-static'
+export const revalidate = 10
 
 export const GET = async (request: Request, { params }: { params: Promise<{ id: string }> }) => {
     const { id } = await params
     const comment = comments.find(comment => comment.id === (id))
     console.log(comment);
-    if (!comment) return Response.json({message:'Not found'},{
-        headers: { 'Content-type': 'application/json' },
-        status: 404
-    })
+    if (!comment) return Response.json({ message: 'Not found' })
     return Response.json(comment)
 }
 
