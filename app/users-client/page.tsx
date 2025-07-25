@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 
 type Users = {
@@ -34,12 +34,17 @@ const UsersClient = () => {
   }, []);
   if (error) return <div>{error}</div>;
   if (loading) return <div>Loading...</div>;
-  return users.map((user) => (
-    <div key={user.id}>
-      <div>Username: {user.username}</div>
-      <div>Email: {user.email}</div>
-    </div>
-  ));
+  return (
+    <>
+      <h1>Client fetching</h1>
+      {users.map((user) => (
+        <div key={user.id}>
+          <div>Username: {user.username}</div>
+          <div>Email: {user.email}</div>
+        </div>
+      ))}
+    </>
+  );
 };
 
 export default UsersClient;
