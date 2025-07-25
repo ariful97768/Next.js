@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ErrorWrapper from "./error-wrapper";
+import { ThemeProvider } from "./components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -16,11 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <ErrorWrapper>
-          {children}
-        </ErrorWrapper>
-      </body>
+      <ThemeProvider>
+        <body className={`antialiased`}>
+          <ErrorWrapper>{children}</ErrorWrapper>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
