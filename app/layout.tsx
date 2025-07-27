@@ -19,7 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider>
         <body className={`antialiased`}>
-          <ErrorWrapper>{children}</ErrorWrapper>
+          {/* <ErrorWrapper>{children}</ErrorWrapper> */}
+          {children}
         </body>
       </ThemeProvider>
     </html>
